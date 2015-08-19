@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  infodate: 2015-08-19
+  hour: 1
+  positive: 1
+  neutral: 1
+  negative: 1
+  cloud: 
+  image_loc: MyString
+
+two:
+  infodate: 2015-08-19
+  hour: 1
+  positive: 1
+  neutral: 1
+  negative: 1
+  cloud: 
+  image_loc: MyString

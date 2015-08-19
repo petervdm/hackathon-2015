@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Infodate:</strong>
+  <%= @displaydatum.infodate %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @displaydatum.hour %>
+</p>
+
+<p>
+  <strong>Image loc:</strong>
+  <%= @displaydatum.image_loc %>
+</p>
+
+
+<%= image_tag @displaydatum.image_loc , :class => "img_preview" %>
+<p>
+
+<%= link_to 'Edit', edit_displaydatum_path(@displaydatum) %> |
+<%= link_to 'Back', displaydata_path %>
