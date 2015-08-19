@@ -6,8 +6,11 @@ server:
   - type: http
     port: 8011
 
+database:
 
+  # the name of your JDBC driver
+  driverClass: com.mysql.jdbc.Driver
 
-template: Duty payable is, %s!
-
-
+  user: root
+  password: s0cial
+  url: jdbc:mysql://173.194.226.150:3306/socialdb

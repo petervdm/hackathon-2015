@@ -1,44 +1,20 @@
 package uk.gov.dvla.osl.enquiry;
 
 import io.dropwizard.Configuration;
-        import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.db.DataSourceFactory;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 public class EnquiryConfiguration extends Configuration {
-    @NotEmpty
-    private String template;
-//
-//    @NotEmpty
-//    private String defaultTaxClass = "48";
-//
-//    @NotEmpty
-//    private String defaultCO2 = "1000";
-//
-    @JsonProperty
-    public String getTemplate() {
-        return template;
-    }
-//
-    @JsonProperty
-    public void setTemplate(String template) {
-        this.template = template;
-    }
-//
-//    @JsonProperty
-//    public String getDefaultTaxClass() {
-//        return defaultTaxClass;
-//    }
-//
-//    @JsonProperty
-//    public String getDefaultCO2() {
-//        return defaultCO2;
-//    }
-//
-//    @JsonProperty
-//    public void setDefaultName(String name) {
-//        this.defaultTaxClass = name;
-//    }
 
+    @Valid
+    @NotNull
+    private DataSourceFactory database = new DataSourceFactory();
 
+    @JsonProperty("database")
+    public DataSourceFactory getDataSourceFactory() {
+        return database;
+    }
 }

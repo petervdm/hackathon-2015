@@ -2,8 +2,11 @@ package uk.gov.dvla.osl.enquiry;
 
 import io.dropwizard.Application;
 import io.dropwizard.java8.Java8Bundle;
+import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.skife.jdbi.v2.DBI;
+import uk.gov.dvla.osl.enquiry.dao.TweetDao;
 import uk.gov.dvla.osl.enquiry.resources.EnquiryResource;
 
 public class EnquiryApplication extends Application<EnquiryConfiguration> {
@@ -29,7 +32,11 @@ public class EnquiryApplication extends Application<EnquiryConfiguration> {
     public void run(EnquiryConfiguration configuration,
                     Environment environment) {
 
-        final EnquiryResource resource = new EnquiryResource();
+        final DBIFactory factory = new DBIFactory();
+        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
+        final TweetDao dao = jdbi.onDemand(TweetDao.class);
+
+        final EnquiryResource resource = new EnquiryResource(dao);
 
         environment.jersey().register(resource);
 

@@ -1,54 +1,46 @@
 package uk.gov.dvla.osl.enquiry.resources;
 
 
+import uk.gov.dvla.osl.enquiry.dao.TweetDao;
+
 import javax.validation.Valid;
-import javax.ws.rs.*;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
+import java.net.URLEncoder;
 
 @Path("/enrich")
 @Produces(MediaType.APPLICATION_JSON)
 public class EnquiryResource {
 
+    private TweetDao dao;
+
+    public EnquiryResource(TweetDao dao) {
+        this.dao = dao;
+    }
+
     @POST
     public void addTweet(@Valid TweetInfo tweet) {
-//        System.out.print(tweet.getTweet());
-
 
         String response = null;
         try {
             response = sendPost(tweet.getTweet());
+            dao.insert(tweet.getCreatedOn(), tweet.getUser(), tweet.getTweet(), response);
         }
         catch (Exception e)
         {
             System.out.println(e.getStackTrace());
-        };
+        }
 
         System.out.print(response);
 
-
     }
-
-
 
     private String sendPost(String tweettext) throws Exception {
 
