@@ -1,0 +1,39 @@
+@startuml
+
+cloud "exernal services" {
+	[twitter-api]
+	[datum-box]
+	[word-cloud]
+}
+
+cloud "google" {
+	node vm1 {
+		[twitter-feed] <<scala>>
+	}
+
+	node vm2 {
+		[enricher] <<dropwizard>>
+	}
+
+	node vm3 {
+		database tweets <<mysql>>
+	}
+
+	node vm4 {
+		[aggregator]	
+	}
+
+	node vm5 {
+		[front-end] <<ruby-on-rails>>
+	}
+}
+
+[aggregator] --> tweets
+[aggregator] --> [word-cloud]
+[twitter-feed] --> [twitter-api]
+[front-end] --> tweets
+[twitter-feed] --> [enricher]
+[enricher] --> tweets
+[enricher] --> [datum-box]
+
+@enduml

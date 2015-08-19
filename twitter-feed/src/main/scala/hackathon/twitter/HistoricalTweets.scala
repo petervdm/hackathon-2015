@@ -26,7 +26,7 @@ class HistoricalFetcherFetcher extends HttpHelpers {
     val twitter = new TwitterFactory(Util.config).getInstance
 
     val query = new Query(search)
-    query.setSince("2015-08-01")
+    query.setSince("2015-06-01")
 
     var results = twitter.search(query)
 
