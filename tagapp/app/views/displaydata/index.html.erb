@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Available Word Clouds</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Infodate</th>
+      <th>Hour</th>
+      <th>Positive</th>
+      <th>Neutral</th>
+      <th>Negative</th>
+      <th>Cloud</th>
+      <th>Image loc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @displaydata.each do |displaydatum| %>
+      <tr>
+        <td><%= displaydatum.infodate %></td>
+        <td><%= displaydatum.hour %></td>
+        <td><%= displaydatum.positive %></td>
+        <td><%= displaydatum.neutral %></td>
+        <td><%= displaydatum.negative %></td>
+        <td><%= displaydatum.cloud %></td>
+        <td><%= displaydatum.image_loc %></td>
+        <td><%= link_to 'Show', displaydatum %></td>
+        <td><%= link_to 'Edit', edit_displaydatum_path(displaydatum) %></td>
+        <td><%= link_to 'Destroy', displaydatum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

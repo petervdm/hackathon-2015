@@ -1,0 +1,45 @@
+<%= form_for(@displaydatum) do |f| %>
+  <% if @displaydatum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@displaydatum.errors.count, "error") %> prohibited this displaydatum from being saved:</h2>
+
+      <ul>
+      <% @displaydatum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :infodate %><br>
+    <%= f.date_select :infodate %>
+  </div>
+  <div class="field">
+    <%= f.label :hour %><br>
+    <%= f.number_field :hour %>
+  </div>
+  <div class="field">
+    <%= f.label :positive %><br>
+    <%= f.number_field :positive %>
+  </div>
+  <div class="field">
+    <%= f.label :neutral %><br>
+    <%= f.number_field :neutral %>
+  </div>
+  <div class="field">
+    <%= f.label :negative %><br>
+    <%= f.number_field :negative %>
+  </div>
+  <div class="field">
+    <%= f.label :cloud %><br>
+    <%= f.text_field :cloud %>
+  </div>
+  <div class="field">
+    <%= f.label :image_loc %><br>
+    <%= f.text_field :image_loc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
