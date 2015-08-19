@@ -1,5 +1,7 @@
 package hackathon.twitter
 
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
 import java.util.Date
 
 import twitter4j.{Query, TwitterFactory}
@@ -24,7 +26,7 @@ class HistoricalFetcherFetcher extends HttpHelpers {
     val twitter = new TwitterFactory(Util.config).getInstance
 
     val query = new Query(search)
-    query.setSince("2015-03-10")
+    query.setSince("2015-08-01")
 
     var results = twitter.search(query)
 
@@ -33,7 +35,11 @@ class HistoricalFetcherFetcher extends HttpHelpers {
       val tweets = results.getTweets
       tweets.foreach(x =>
         {
-          val t = "{\"createdOn\":\"" + x.getCreatedAt.toString +
+
+          val format = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss")
+          val createdAd = format.format(x.getCreatedAt)
+
+          val t = "{\"createdOn\":\"" + createdAd +
             "\",\"user\":\"" + x.getUser.getName +
             "\",\"tweet\":\"" + x.getText.replaceAll("\"" , "\\\\\"") + "\"}"
 

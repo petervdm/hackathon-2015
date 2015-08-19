@@ -38,16 +38,17 @@ public class EnquiryResource {
 
             int found = response.indexOf("result",0);
 
-            int end = response.length() - 4;
+            int end = response.length() - 3;
 
-            String sent = response.substring(found,end);
+            String sent = response.substring(found+9,end);
 
             System.out.println(sent);
             dao.insert(tweet.getCreatedOn(), tweet.getUser(), tweet.getTweet(), sent);
         }
         catch (Exception e)
         {
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getStackTrace().toString());
+            System.out.println(e.getMessage());
         }
 
         System.out.print(response);

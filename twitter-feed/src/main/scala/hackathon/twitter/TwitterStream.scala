@@ -5,10 +5,10 @@ import twitter4j._
 object Util {
 
   val config = new twitter4j.conf.ConfigurationBuilder()
-    .setOAuthConsumerKey("yLipAFkUdrBLI1kLZKC54tH33")
-    .setOAuthConsumerSecret("OgFyrMPJEnMUwwKHM8UbCf9niWkbIyqQFIKvdDTI9mqkoXdAuF")
-    .setOAuthAccessToken("18387758-NMm8UGXsGlC2G8UCwFikdFxfRpHAiDMUI2XpuzKyQ")
-    .setOAuthAccessTokenSecret("HEapn5wIofjvgS3hQ7VCvmAfhulEl7PDwXhEg2qTD1qiI")
+    .setOAuthConsumerKey("GgwTEwaAT9oru78lp6TvLgSt3")
+    .setOAuthConsumerSecret("kKn0dQ3u8y4Epd8a8pBYubPnLmSBVFTvNGbR4A4LzP76RceSTp")
+    .setOAuthAccessToken("3431134343-dFPkB9f5viyMXjF5KnXiMjCn1ETcDdDXjFDorOK")
+    .setOAuthAccessTokenSecret("bVdX2KwM4PRt5DlN5j8ot6rlLkl3xHpvZjjaLPVmAtpuX")
     .build
 
   def simpleStatusListener = new StatusListener() {
