@@ -1,9 +1,13 @@
 package hackathon.twitter
 
+import java.util.Date
+
 import twitter4j.{Query, TwitterFactory}
 
 import scala.collection.JavaConversions._
 import scala.util.{Failure, Success, Try}
+
+case class TweetInfo(createdOn: Date, user: String, tweet: String)
 
 object HistoricalTweets {
 
@@ -29,7 +33,12 @@ class HistoricalFetcherFetcher extends HttpHelpers {
       val tweets = results.getTweets
       tweets.foreach(x =>
         {
-          post("http://localhost:8010/enrich", x.toString)
+          val t = "{\"createdOn\":\"" + x.getCreatedAt.toString +
+            "\",\"user\":\"" + x.getUser.getName +
+            "\",\"tweet\":\"" + x.getText.replaceAll("\"" , "\\\\\"") + "\"}"
+
+//          println(t)
+          post("http://localhost:8010/enrich",  t)
 
 //          Try(post("http://localhost/enricher", x.toString) _) match {
 //            case Success(s) =>
@@ -42,3 +51,4 @@ class HistoricalFetcherFetcher extends HttpHelpers {
 
   }
 }
+
