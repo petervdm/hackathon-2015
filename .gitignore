@@ -1,0 +1,12 @@
+.classpath
+.project
+.settings/
+target/
+/report
+.idea/
+/**/src/test/resources/vlc-flywaydb-*.properties
+/**/*.iml
+*.lock
+dependency-reduced-pom.xml
+report
+results.txt
