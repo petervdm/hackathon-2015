@@ -1,10 +1,6 @@
 package uk.gov.dvla.osl.enquiry.resources;
 
-
 import uk.gov.dvla.osl.enquiry.dao.TweetDao;
-
-
-
 
 import javax.validation.Valid;
 import javax.ws.rs.POST;
@@ -17,7 +13,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Map;
 
 @Path("/enrich")
 @Produces(MediaType.APPLICATION_JSON)
@@ -74,7 +69,7 @@ public class EnquiryResource {
         con.setRequestProperty("User-Agent", USER_AGENT);
         con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
-        String urlParameters = "api_key=3115ba031f75c4355fec58e0ff64ba92&text="+uuencoded_text;
+        String urlParameters = "api_key=c49dc06b88d7ed2ae31fe8648b6bb098&text="+uuencoded_text;
 
         // Send post request
         con.setDoOutput(true);
