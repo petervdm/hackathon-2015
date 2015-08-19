@@ -1,0 +1,20 @@
+#
+# Configuration File for OSL License database domain
+# Created by Andrew Shapton on 15/05/2015.
+#
+#######################################################################################################################
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 8010
+  adminConnectors:
+  - type: http
+    port: 8011
+
+
+
+template: Duty payable is, %s!
+defaultCO2: 1000
+
+
