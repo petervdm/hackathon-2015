@@ -1,8 +1,0 @@
-INSERT INTO licence (validfromdate, validtodate, licenceperiod, amountpaid, licencestatus, isadvanced, extraweeks, taxclass, isoffroad, vehicleid, licenceid, issuedatetime) VALUES ('2015-05-18', '2015-05-18', 12, 123, 0, '1', 1, '48', '1', 1, 0, '2015-05-18 08:50:02.713');
-INSERT INTO licence (validfromdate, validtodate, licenceperiod, amountpaid, licencestatus, isadvanced, extraweeks, taxclass, isoffroad, vehicleid, licenceid, issuedatetime) VALUES ('2015-05-29', '2015-05-29', 12, 123.330002, 0, 'N', 1, '48', 'N', 1, 100, '2015-05-29 15:18:43.747');
-INSERT INTO licence (validfromdate, validtodate, licenceperiod, amountpaid, licencestatus, isadvanced, extraweeks, taxclass, isoffroad, vehicleid, licenceid, issuedatetime) VALUES ('2015-06-02', '2015-06-02', 12, 123.330002, 0, 'N', 1, '48', 'N', 1, 101, '2015-06-02 08:34:58.011');
-INSERT INTO licence (validfromdate, validtodate, licenceperiod, amountpaid, licencestatus, isadvanced, extraweeks, taxclass, isoffroad, vehicleid, licenceid, issuedatetime) VALUES ('2015-06-02', '2015-06-02', 12, 123.330002, 0, 'N', 1, '48', 'N', 1, 102, '2015-06-02 08:37:38.007');
-INSERT INTO licence (validfromdate, validtodate, licenceperiod, amountpaid, licencestatus, isadvanced, extraweeks, taxclass, isoffroad, vehicleid, licenceid, issuedatetime) VALUES ('2015-06-02', '2015-06-02', 12, 123.330002, 0, 'N', 1, '48', 'N', 1, 103, '2015-06-02 09:31:21.913');
-INSERT INTO licence (validfromdate, validtodate, licenceperiod, amountpaid, licencestatus, isadvanced, extraweeks, taxclass, isoffroad, vehicleid, licenceid, issuedatetime) VALUES ('2015-06-02', '2015-06-02', 12, 123.330002, 0, 'N', 1, '48', 'N', 1, 104, '2015-06-02 11:12:13.512');
-
-SELECT pg_catalog.setval('seq_licenceid', 104, true);

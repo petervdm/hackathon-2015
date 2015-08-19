@@ -29,7 +29,7 @@ class HistoricalFetcherFetcher extends HttpHelpers {
       val tweets = results.getTweets
       tweets.foreach(x =>
         {
-          post("http://localhost:8080/enricher", x.toString)
+          post("http://localhost:8010/enrich", x.toString)
 
 //          Try(post("http://localhost/enricher", x.toString) _) match {
 //            case Success(s) =>
