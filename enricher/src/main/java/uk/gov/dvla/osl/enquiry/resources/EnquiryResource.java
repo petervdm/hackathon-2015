@@ -3,6 +3,9 @@ package uk.gov.dvla.osl.enquiry.resources;
 
 import uk.gov.dvla.osl.enquiry.dao.TweetDao;
 
+
+
+
 import javax.validation.Valid;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -14,6 +17,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Map;
 
 @Path("/enrich")
 @Produces(MediaType.APPLICATION_JSON)
@@ -31,7 +35,15 @@ public class EnquiryResource {
         String response = null;
         try {
             response = sendPost(tweet.getTweet());
-            dao.insert(tweet.getCreatedOn(), tweet.getUser(), tweet.getTweet(), response);
+
+            int found = response.indexOf("result",0);
+
+            int end = response.length() - 4;
+
+            String sent = response.substring(found,end);
+
+            System.out.println(sent);
+            dao.insert(tweet.getCreatedOn(), tweet.getUser(), tweet.getTweet(), sent);
         }
         catch (Exception e)
         {
